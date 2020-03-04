@@ -1,0 +1,22 @@
+---
+- name: Configure monitoring server with elastic-stack and apm-server
+  hosts: [elk]
+  become: true
+  become_user: root
+  remote_user: vagrant
+  gather_facts: false
+  vars_files:
+    - defaults/vault.yml
+    - defaults/shared.yml
+  handlers:
+    - include: handlers/shared.yml
+  pre_tasks:
+    - import_tasks: tasks/pre.yml
+  roles:
+    - role: geerlingguy.nginx
+  tasks:
+    - import_tasks: tasks/java-8.yml
+    - import_tasks: tasks/elasticsearch.yml
+    - import_tasks: tasks/kibana.yml
+    - import_tasks: tasks/nginx.yml
+    - import_tasks: tasks/logstash.yml

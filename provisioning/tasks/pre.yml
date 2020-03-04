@@ -1,0 +1,29 @@
+---
+- name: Install python
+  raw: test -e /usr/bin/python || (apt-get -y update && apt-get install -y python)
+
+- name: Install build essential
+  apt: name=build-essential state=present
+
+- name: Install pip
+  apt: name=python-pip state=present
+
+- name: Install pexpect
+  command: pip install pexpect
+
+- name: Update apt-get
+  command: apt-get update
+
+- name: Upgrade apt-get packages
+  shell: DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" upgrade
+
+- name: Install software properties
+  apt: name=software-properties-common state=present
+
+- name: Install git
+  apt: name=git state=present
+
+- name: Install sshpass
+  apt: name=sshpass state=present
+
+- setup: #gather_facts

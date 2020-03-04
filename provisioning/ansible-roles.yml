@@ -1,0 +1,11 @@
+---
+#
+# Below is the list of roles which will be installed on ansible control machine
+# Process: ../../install-ansible-roles.sh script will install the same
+#
+
+- src: geerlingguy.php
+- src: geerlingguy.nginx
+#- src: geerlingguy.mysql
+#- src: geerlingguy.composer
+

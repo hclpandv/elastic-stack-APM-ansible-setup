@@ -12,7 +12,7 @@
 # Add the Elasticsearch APT-repository
 - name: Adding Elasticsearch APT repository
   apt_repository:
-    repo: deb https://artifacts.elastic.co/p... stable main
+    repo: deb https://artifacts.elastic.co/packages/7.x/apt stable main
     state: present
 
 # Install Elasticsearch

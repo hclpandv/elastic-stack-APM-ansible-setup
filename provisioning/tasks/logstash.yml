@@ -4,10 +4,10 @@
 #
 
 # Add Logstash APT repository
-- name: Adding logstash APT repository
-  apt_repository:
-    repo: deb http://packages.elastic.co/log... stable main
-    state: present
+#- name: Adding logstash APT repository
+#  apt_repository:
+#    repo: deb http://packages.elastic.co/log... stable main
+#    state: present
 
 # Installing Logstash
 - name: Update repositories cache and install Logstash
